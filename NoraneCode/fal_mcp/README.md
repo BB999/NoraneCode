@@ -1,40 +1,40 @@
 # @noranekob/fal-mcp-server
 
-A Model Context Protocol (MCP) server for uploading images to fal.ai and obtaining remote URLs.
+画像をfal.aiにアップロードしてリモートURLを取得するModel Context Protocol (MCP) サーバーです。
 
-## Features
+## 機能
 
-- Upload images to fal.ai cloud storage
-- Get shareable remote URLs for uploaded images
-- Support for common image formats (JPG, PNG, GIF, WebP, BMP)
-- File size validation (max 100MB)
+- 画像をfal.aiクラウドストレージにアップロード
+- アップロードした画像の共有可能なリモートURLを取得
+- 一般的な画像形式をサポート (JPG、PNG、GIF、WebP、BMP)
+- ファイルサイズ検証 (最大100MB)
 
-## Installation
+## インストール
 
-### Using npx (Recommended)
+### npxを使用 (推奨)
 
 ```bash
-# No installation needed, just configure and run
+# インストール不要、設定して実行するだけ
 npx @noranekob/fal-mcp-server
 ```
 
-### Global Installation
+### グローバルインストール
 
 ```bash
 npm install -g @noranekob/fal-mcp-server
 ```
 
-## Setup
+## セットアップ
 
-### 1. Get your fal.ai API key
+### 1. fal.ai APIキーを取得
 
-1. Sign up at [fal.ai](https://fal.ai)
-2. Go to your dashboard and create an API key
-3. Copy the API key
+1. [fal.ai](https://fal.ai) でサインアップ
+2. ダッシュボードでAPIキーを作成
+3. APIキーをコピー
 
-### 2. Configure Claude Code
+### 2. Claude Codeの設定
 
-Add the following to your Claude Code settings file (`~/.claude/settings.json`):
+Claude Codeの設定ファイル (`~/.claude/settings.json`) に以下を追加:
 
 ```json
 {
@@ -43,44 +43,44 @@ Add the following to your Claude Code settings file (`~/.claude/settings.json`):
       "command": "npx",
       "args": ["@noranekob/fal-mcp-server"],
       "env": {
-        "FAL_KEY": "your-fal-api-key-here"
+        "FAL_KEY": "あなたのfal-api-key"
       }
     }
   }
 }
 ```
 
-Replace `your-fal-api-key-here` with your actual fal.ai API key.
+`あなたのfal-api-key` を実際のfal.ai APIキーに置き換えてください。
 
-## Usage
+## 使用方法
 
-Once configured, you can use the following tool in Claude Code:
+設定完了後、Claude Codeで以下のツールを使用できます:
 
 ### `upload_image_to_fal`
 
-Upload an image to fal.ai and get a remote URL.
+画像をfal.aiにアップロードしてリモートURLを取得します。
 
-**Parameters:**
-- `image_path` (string, required): Path to the image file to upload
+**パラメータ:**
+- `image_path` (文字列、必須): アップロードする画像ファイルのパス
 
-**Example:**
+**使用例:**
 ```
-Upload the image at /path/to/image.jpg to fal
+/path/to/image.jpg の画像をfalにアップロード
 ```
 
-## Requirements
+## 必要環境
 
-- Node.js 18.0.0 or higher
-- Python 3.x with `fal-client` package installed
-- A valid fal.ai API key
+- Node.js 18.0.0 以上
+- `fal-client` パッケージがインストールされたPython 3.x
+- 有効なfal.ai APIキー
 
-### Installing Python Dependencies
+### Python依存関係のインストール
 
 ```bash
 pip install fal-client
 ```
 
-## Supported Image Formats
+## サポートされる画像形式
 
 - JPEG/JPG
 - PNG
@@ -88,34 +88,34 @@ pip install fal-client
 - WebP
 - BMP
 
-## Limitations
+## 制限事項
 
-- Maximum file size: 100MB
-- Only image files are supported
+- 最大ファイルサイズ: 100MB
+- 画像ファイルのみサポート
 
-## Troubleshooting
+## トラブルシューティング
 
-### "FAL_KEY not found in environment variables"
+### "FAL_KEY not found in environment variables" エラー
 
-Make sure you've added your fal.ai API key to the Claude Code settings as shown in the setup section.
+セットアップセクションで示されているように、Claude Codeの設定にfal.ai APIキーを追加していることを確認してください。
 
-### "Python not found" or "ModuleNotFoundError: No module named 'fal_client'"
+### "Python not found" または "ModuleNotFoundError: No module named 'fal_client'" エラー
 
-Install the required Python package:
+必要なPythonパッケージをインストールしてください:
 ```bash
 pip install fal-client
 ```
 
-## License
+## ライセンス
 
 MIT
 
-## Author
+## 作者
 
 noranekob
 
-## Links
+## リンク
 
-- [GitHub Repository](https://github.com/noranekob/fal-mcp-server)
-- [Report Issues](https://github.com/noranekob/fal-mcp-server/issues)
-- [fal.ai Documentation](https://fal.ai/docs)
+- [GitHubリポジトリ](https://github.com/noranekob/fal-mcp-server)
+- [問題を報告](https://github.com/noranekob/fal-mcp-server/issues)
+- [fal.ai ドキュメント](https://fal.ai/docs)

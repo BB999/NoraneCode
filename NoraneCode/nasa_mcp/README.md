@@ -1,40 +1,40 @@
 # @noranekob/nasa-mcp-server
 
-A Model Context Protocol (MCP) server for accessing NASA APIs - download space images, Mars rover photos, videos, and Near Earth Objects data.
+NASA APIにアクセスして宇宙画像、火星探査機の写真、動画、地球近傍天体データをダウンロードするModel Context Protocol (MCP) サーバーです。
 
-## Features
+## 機能
 
-- **APOD (Astronomy Picture of the Day)**: Download today's or random space images
-- **Mars Rover Photos**: Access photos from Curiosity, Perseverance, Opportunity, and Spirit rovers
-- **NASA Media Library**: Search and download images/videos from NASA's extensive collection
-- **Near Earth Objects**: Get data about asteroids and comets near Earth
+- **APOD (今日の天体写真)**: 今日または過去のランダム宇宙画像をダウンロード
+- **火星探査機の写真**: Curiosity、Perseverance、Opportunity、Spirit探査機の写真にアクセス
+- **NASA メディアライブラリ**: NASAの豊富なコレクションから画像・動画を検索・ダウンロード
+- **地球近傍天体**: 地球近くの小惑星や彗星のデータを取得
 
-## Installation
+## インストール
 
-### Using npx (Recommended)
+### npxを使用 (推奨)
 
 ```bash
-# No installation needed, just configure and run
+# インストール不要、設定して実行するだけ
 npx @noranekob/nasa-mcp-server
 ```
 
-### Global Installation
+### グローバルインストール
 
 ```bash
 npm install -g @noranekob/nasa-mcp-server
 ```
 
-## Setup
+## セットアップ
 
-### 1. Get your NASA API key
+### 1. NASA APIキーを取得
 
-1. Visit [NASA API Portal](https://api.nasa.gov/)
-2. Sign up for a free API key
-3. Save your API key
+1. [NASA APIポータル](https://api.nasa.gov/) にアクセス
+2. 無料のAPIキーにサインアップ
+3. APIキーを保存
 
-### 2. Configure Claude Code
+### 2. Claude Codeの設定
 
-Add the following to your Claude Code settings file (`~/.claude/settings.json`):
+Claude Codeの設定ファイル (`~/.claude/settings.json`) に以下を追加:
 
 ```json
 {
@@ -43,129 +43,129 @@ Add the following to your Claude Code settings file (`~/.claude/settings.json`):
       "command": "npx",
       "args": ["@noranekob/nasa-mcp-server"],
       "env": {
-        "NASA_API_KEY": "your-nasa-api-key-here"
+        "NASA_API_KEY": "あなたのnasa-api-key"
       }
     }
   }
 }
 ```
 
-Replace `your-nasa-api-key-here` with your actual NASA API key.
+`あなたのnasa-api-key` を実際のNASA APIキーに置き換えてください。
 
-## Available Tools
+## 利用可能なツール
 
 ### 1. `download_apod`
 
-Download Astronomy Picture of the Day images.
+今日の天体写真をダウンロードします。
 
-**Parameters:**
-- `count` (number, optional): Number of images to download (1-100, default: 1)
-- `order` (string, optional): Image selection order - "random", "latest", "oldest" (default: "random")
+**パラメータ:**
+- `count` (数値、オプション): ダウンロード枚数 (1-100、デフォルト: 1)
+- `order` (文字列、オプション): 画像選択順序 - "random", "latest", "oldest" (デフォルト: "random")
 
-**Example:**
+**使用例:**
 ```
-Download 5 random APOD images
+APODをランダムで5枚ダウンロード
 ```
 
 ### 2. `download_mars_photos`
 
-Download photos from Mars rovers.
+火星探査機の写真をダウンロードします。
 
-**Parameters:**
-- `rover` (string, required): Rover name - "curiosity", "perseverance", "opportunity", "spirit"
-- `sol` (number, optional): Martian day number
-- `earth_date` (string, optional): Earth date in YYYY-MM-DD format
-- `count` (number, optional): Number of photos (1-100, default: 5)
-- `random` (boolean, optional): Select random sol day (default: false)
+**パラメータ:**
+- `rover` (文字列、必須): 探査機名 - "curiosity", "perseverance", "opportunity", "spirit"
+- `sol` (数値、オプション): 火星日番号
+- `earth_date` (文字列、オプション): 地球日付 (YYYY-MM-DD形式)
+- `count` (数値、オプション): 写真枚数 (1-100、デフォルト: 5)
+- `random` (真偽値、オプション): ランダムなソル日を選択 (デフォルト: false)
 
-**Example:**
+**使用例:**
 ```
-Download 10 photos from Curiosity rover on a random day
+Curiosity探査機の写真をランダムな日から10枚ダウンロード
 ```
 
 ### 3. `download_nasa_media`
 
-Search and download images/videos from NASA Image Library.
+NASA画像ライブラリから検索・ダウンロードします。
 
-**Parameters:**
-- `query` (string, required): Search keyword (e.g., "apollo", "mars", "nebula")
-- `media_type` (string, optional): "image", "video", or "both" (default: "image")
-- `count` (number, optional): Number of items (1-50, default: 5)
-- `order` (string, optional): "latest", "random", or "oldest" (default: "latest")
+**パラメータ:**
+- `query` (文字列、必須): 検索キーワード (例: "apollo", "mars", "nebula")
+- `media_type` (文字列、オプション): "image", "video", "both" (デフォルト: "image")
+- `count` (数値、オプション): アイテム数 (1-50、デフォルト: 5)
+- `order` (文字列、オプション): "latest", "random", "oldest" (デフォルト: "latest")
 
-**Popular Search Terms:**
-- **Images**: mission, launch, crew, spacecraft, astronaut, orbit, shuttle, rocket
-- **Videos**: mission, launch, earth, crew, spacecraft, astronaut, moon, exploration
+**人気の検索ワード:**
+- **画像**: mission, launch, crew, spacecraft, astronaut, orbit, shuttle, rocket
+- **動画**: mission, launch, earth, crew, spacecraft, astronaut, moon, exploration
 
-**Example:**
+**使用例:**
 ```
-Search for "apollo" videos and download 3
+"apollo"で動画を検索して3つダウンロード
 ```
 
 ### 4. `get_neo_data`
 
-Get Near Earth Objects data.
+地球近傍天体データを取得します。
 
-**Parameters:**
-- `start_date` (string, optional): Start date in YYYY-MM-DD format (default: today)
-- `days` (number, optional): Number of days to query (1-7, default: 7)
+**パラメータ:**
+- `start_date` (文字列、オプション): 開始日 (YYYY-MM-DD形式、デフォルト: 今日)
+- `days` (数値、オプション): クエリ日数 (1-7、デフォルト: 7)
 
-**Example:**
+**使用例:**
 ```
-Get NEO data for the next 7 days
+今後7日間のNEOデータを取得
 ```
 
-## Output
+## 出力
 
-All downloaded files are saved to a timestamped directory in your current working directory:
+ダウンロードしたファイルは、現在の作業ディレクトリにタイムスタンプ付きディレクトリに保存されます:
 - `nasa_downloads_YYYY-MM-DD_HH-mm-ss/`
 
-The directory includes:
-- Downloaded images/videos
-- JSON metadata files with detailed information
+ディレクトリには以下が含まれます:
+- ダウンロードした画像・動画
+- 詳細情報を含むJSONメタデータファイル
 
-## Requirements
+## 必要環境
 
-- Node.js 18.0.0 or higher
-- A valid NASA API key (free from [api.nasa.gov](https://api.nasa.gov/))
+- Node.js 18.0.0 以上
+- 有効なNASA APIキー ([api.nasa.gov](https://api.nasa.gov/) で無料取得)
 
-## Rate Limits
+## レート制限
 
-NASA API has the following rate limits:
-- Hourly Limit: 1,000 requests per hour
-- Daily Limit: Variable based on demand
+NASA APIには以下のレート制限があります:
+- 時間制限: 1時間あたり1,000リクエスト
+- 日制限: 需要に応じて変動
 
-## Troubleshooting
+## トラブルシューティング
 
-### "NASA_API_KEY not found in environment variables"
+### "NASA_API_KEY not found in environment variables" エラー
 
-Make sure you've added your NASA API key to the Claude Code settings as shown in the setup section.
+セットアップセクションで示されているように、Claude Codeの設定にNASA APIキーを追加していることを確認してください。
 
-### "No results found"
+### "No results found" エラー
 
-Try different search terms. For best results:
-- Use general terms like "mission", "launch", "spacecraft"
-- Check the popular search terms listed above
-- For Mars photos, try different sol numbers or use random mode
+異なる検索用語を試してください。最良の結果を得るには:
+- "mission", "launch", "spacecraft" などの一般的な用語を使用
+- 上記の人気検索ワードを確認
+- 火星写真の場合、異なるソル番号を試すかランダムモードを使用
 
-### Download Issues
+### ダウンロードの問題
 
-If downloads fail:
-- Check your internet connection
-- Verify your API key is valid
-- Ensure you haven't exceeded rate limits
+ダウンロードに失敗する場合:
+- インターネット接続を確認
+- APIキーが有効であることを確認
+- レート制限を超えていないことを確認
 
-## License
+## ライセンス
 
 MIT
 
-## Author
+## 作者
 
 noranekob
 
-## Links
+## リンク
 
-- [GitHub Repository](https://github.com/noranekob/nasa-mcp-server)
-- [Report Issues](https://github.com/noranekob/nasa-mcp-server/issues)
-- [NASA API Documentation](https://api.nasa.gov/)
-- [NASA Image and Video Library](https://images.nasa.gov/)
+- [GitHubリポジトリ](https://github.com/noranekob/nasa-mcp-server)
+- [問題を報告](https://github.com/noranekob/nasa-mcp-server/issues)
+- [NASA API ドキュメント](https://api.nasa.gov/)
+- [NASA 画像・動画ライブラリ](https://images.nasa.gov/)
