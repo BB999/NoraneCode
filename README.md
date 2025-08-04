@@ -2,62 +2,25 @@
 
 Claude Code用のModel Context Protocol (MCP) サーバーのコレクションです。
 
-## 利用可能なサーバー
+## 🎨 FAL MCP Server
 
-### 1. 🚀 NASA MCP Server
-NASA APIにアクセスして宇宙画像、火星探査機の写真、動画、地球近傍天体データをダウンロードできます。
+画像をfal.aiにアップロードしてリモートURLを取得できるMCPサーバーです。
 
-**NPMパッケージ:** [@noranekob/nasa-mcp-server](https://www.npmjs.com/package/@noranekob/nasa-mcp-server)
-
-```bash
-npx @noranekob/nasa-mcp-server
-```
-
-**機能:**
-- APOD (今日の天体写真)
-- 火星探査機の写真 (Curiosity、Perseveranceなど)
-- NASA メディアライブラリ検索
-- 地球近傍天体データ
-
-[詳細を見る](./NoraneCode/nasa_mcp/README.md)
-
-### 2. 🎨 FAL MCP Server
-画像をfal.aiにアップロードして、AI処理用のリモートURLを取得できます。
-
-**NPMパッケージ:** [@noranekob/fal-mcp-server](https://www.npmjs.com/package/@noranekob/fal-mcp-server)
+### インストール
 
 ```bash
 npx @noranekob/fal-mcp-server
 ```
 
-**機能:**
-- 画像をfal.aiクラウドストレージにアップロード
-- 共有可能なリモートURLを取得
-- 一般的な画像形式をサポート
+### セットアップ
 
-[詳細を見る](./NoraneCode/fal_mcp/README.md)
-
-## インストールと使い方
-
-### 1. APIキーを取得
-
-- **NASA API**: [api.nasa.gov](https://api.nasa.gov/) で無料取得
-- **FAL API**: [fal.ai](https://fal.ai) でサインアップ
-
-### 2. Claude Codeの設定
-
-`~/.claude/settings.json` に以下を追加:
+1. [fal.ai](https://fal.ai) でAPIキーを取得
+2. Python環境に fal-client をインストール: `pip install fal-client`
+3. `~/.claude/settings.json` に設定を追加:
 
 ```json
 {
   "mcpServers": {
-    "nasa-mcp-server": {
-      "command": "npx",
-      "args": ["@noranekob/nasa-mcp-server"],
-      "env": {
-        "NASA_API_KEY": "あなたのNASA APIキー"
-      }
-    },
     "fal-mcp-server": {
       "command": "npx",
       "args": ["@noranekob/fal-mcp-server"],
@@ -69,21 +32,77 @@ npx @noranekob/fal-mcp-server
 }
 ```
 
-### 3. 使用方法
+### 機能
 
-設定完了後、Claude Codeで以下のようにお願いするだけ：
+- **画像アップロード**: ローカル画像をfal.aiクラウドに保存
+- **リモートURL取得**: AI処理で使える共有URLを生成
+- **複数フォーマット対応**: JPG、PNG、GIF、WebP、BMP
 
-```
-火星の写真を5枚ランダムでダウンロードして
-```
+### 使用例
 
 ```
 この画像をfalにアップロードしてリモートURL教えて
 ```
 
 ```
+/Users/username/image.jpg をfalにアップロード
+```
+
+[詳細なドキュメント →](./NoraneCode/fal_mcp/README.md)
+
+---
+
+## 🚀 NASA MCP Server
+
+宇宙画像や火星探査機の写真をダウンロードできるMCPサーバーです。
+
+### インストール
+
+```bash
+npx @noranekob/nasa-mcp-server
+```
+
+### セットアップ
+
+1. [NASA API](https://api.nasa.gov/) で無料のAPIキーを取得
+2. `~/.claude/settings.json` に設定を追加:
+
+```json
+{
+  "mcpServers": {
+    "nasa-mcp-server": {
+      "command": "npx",
+      "args": ["@noranekob/nasa-mcp-server"],
+      "env": {
+        "NASA_API_KEY": "あなたのNASA APIキー"
+      }
+    }
+  }
+}
+```
+
+### 機能
+
+- **APOD (今日の天体写真)**: 宇宙の美しい画像をダウンロード
+- **火星探査機の写真**: Curiosity、Perseveranceなどの写真
+- **NASA メディア検索**: 宇宙関連の画像・動画を検索
+- **地球近傍天体データ**: 小惑星情報を取得
+
+### 使用例
+
+```
+火星の写真を5枚ランダムでダウンロード
+```
+
+```
 "apollo"で動画を検索して3つダウンロード
 ```
+
+```
+今日のAPODをダウンロード
+```
+
+[詳細なドキュメント →](./NoraneCode/nasa_mcp/README.md)
 
 ## Development
 
