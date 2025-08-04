@@ -1,0 +1,36 @@
+# 開発環境のファイル
+node_modules/
+*.log
+.env
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ソースコード（必要に応じて）
+src/
+tests/
+test/
+
+# 設定ファイル
+.gitignore
+.eslintrc*
+.prettierrc*
+tsconfig.json
+jest.config.*
+mcp-config.json
+
+# ドキュメント（READMEは含める）
+docs/
+*.md
+!README.md
+
+# その他
+.github/
+.git/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+nasa_downloads_*

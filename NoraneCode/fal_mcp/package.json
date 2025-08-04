@@ -1,0 +1,38 @@
+{
+  "name": "@noranekob/fal-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for fal.ai - Upload images to fal.ai and get remote URLs",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "fal-mcp-server": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "prepublishOnly": "npm run check",
+    "check": "node -c index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "files": [
+    "index.js",
+    "upload_to_fal.py",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noranekob/fal-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/noranekob/fal-mcp-server/issues"
+  },
+  "homepage": "https://github.com/noranekob/fal-mcp-server#readme",
+  "keywords": ["mcp", "modelcontextprotocol", "fal", "fal.ai", "image", "upload", "ai", "claude"],
+  "author": "noranekob",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

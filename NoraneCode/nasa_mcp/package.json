@@ -1,0 +1,51 @@
+{
+  "name": "@noranekob/nasa-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for NASA APIs - Download images and videos from various NASA APIs",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "nasa-mcp-server": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "prepublishOnly": "npm run check",
+    "check": "node -c index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.0",
+    "fs-extra": "^11.2.0"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noranekob/nasa-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/noranekob/nasa-mcp-server/issues"
+  },
+  "homepage": "https://github.com/noranekob/nasa-mcp-server#readme",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "nasa",
+    "space",
+    "images",
+    "videos",
+    "api",
+    "apod",
+    "mars",
+    "rover",
+    "claude"
+  ],
+  "author": "noranekob",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
