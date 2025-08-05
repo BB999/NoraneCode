@@ -24,6 +24,12 @@ npx @noranekob/fal-mcp-server
 npm install -g @noranekob/fal-mcp-server
 ```
 
+### Python依存関係のインストール
+
+```bash
+pip install fal-client
+```
+
 ## セットアップ
 
 ### 1. fal.ai APIキーを取得
