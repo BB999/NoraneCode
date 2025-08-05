@@ -1,4 +1,4 @@
-# mcp-line-notify
+# line_mcp
 
 ClaudeからLINEメッセージを送信できるModel Context Protocol (MCP) サーバーです。
 
