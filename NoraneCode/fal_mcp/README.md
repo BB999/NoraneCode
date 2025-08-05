@@ -14,7 +14,7 @@
 ### npxを使用 (推奨)
 
 ```bash
-# インストール不要、設定して実行するだけ
+# インストール不要、下記のClaude Code設定ファイルに記述するだけで使用可能（下記設定ファイルでは記述済み）
 npx @noranekob/fal-mcp-server
 ```
 
@@ -114,6 +114,7 @@ pip install fal-client
 **Windows環境の場合:**
 - Python 3.xがインストールされ、`python`コマンドでアクセス可能であることを確認してください
 - Pythonのインストール時に「Add Python to PATH」オプションを選択してください
+- ※Windows環境では絵文字表示エラーが発生する場合がありますが、アップロード自体は正常に完了します
 
 ## ライセンス
 

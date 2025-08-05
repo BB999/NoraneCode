@@ -72,7 +72,7 @@ if __name__ == "__main__":
     
     result_url = upload_image_to_fal(image_path)
     if result_url:
-        print(f"\n✅ Success: {result_url}")
+        print(f"\nSuccess: {result_url}")
     else:
-        print("\n❌ Upload failed")
+        print("\nUpload failed")
         sys.exit(1)
