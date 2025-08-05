@@ -1,6 +1,6 @@
 {
   "name": "@noranekob/fal-mcp-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP Server for fal.ai - Upload images to fal.ai and get remote URLs",
   "type": "module",
   "main": "index.js",
