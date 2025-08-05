@@ -18,6 +18,13 @@ NASA APIで宇宙画像や火星探査機の写真をダウンロード
 npx @noranekob/nasa-mcp-server
 ```
 
+### [mcp-line-notify](./NoraneCode/line-mcp)
+ClaudeからLINEメッセージを送信
+
+```bash
+npx mcp-line-notify
+```
+
 ## 🚀 クイックスタート
 
 ### 1. Claude Codeの設定
@@ -40,6 +47,14 @@ npx @noranekob/nasa-mcp-server
       "env": {
         "NASA_API_KEY": "your-nasa-api-key"
       }
+    },
+    "line-notify": {
+      "command": "npx",
+      "args": ["mcp-line-notify"],
+      "env": {
+        "LINE_CHANNEL_ACCESS_TOKEN": "your-line-channel-access-token",
+        "LINE_USER_ID": "your-line-user-id"
+      }
     }
   }
 }
@@ -49,6 +64,7 @@ npx @noranekob/nasa-mcp-server
 
 - **FAL API**: [fal.ai](https://fal.ai) でサインアップ
 - **NASA API**: [api.nasa.gov](https://api.nasa.gov/) で無料取得
+- **LINE API**: [LINE Developers Console](https://developers.line.biz/console/) でMessaging API設定
 
 ## 📖 詳細ドキュメント
 
@@ -56,6 +72,7 @@ npx @noranekob/nasa-mcp-server
 
 - [FAL MCP Server ドキュメント](./NoraneCode/fal_mcp/README.md)
 - [NASA MCP Server ドキュメント](./NoraneCode/nasa_mcp/README.md)
+- [LINE MCP Server ドキュメント](./NoraneCode/line-mcp/README.md)
 
 ## 🖥️ プラットフォーム対応
 

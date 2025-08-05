@@ -1,0 +1,39 @@
+{
+  "name": "mcp-line-notify",
+  "version": "1.0.0",
+  "description": "MCP server for sending LINE notifications",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "mcp-line-notify": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "line",
+    "notification",
+    "messaging",
+    "api",
+    "claude"
+  ],
+  "author": "noranekob",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noranekob/NoraneCode.git",
+    "directory": "NoraneCode/line-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/noranekob/NoraneCode/issues"
+  },
+  "homepage": "https://github.com/noranekob/NoraneCode/tree/main/NoraneCode/line-mcp#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.0"
+  }
+}
