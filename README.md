@@ -18,7 +18,7 @@ NASA APIで宇宙画像や火星探査機の写真をダウンロード
 npx @noranekob/nasa-mcp-server
 ```
 
-### [mcp-line-notify](./NoraneCode/line-mcp)
+### [mcp-line-notify](./NoraneCode/line_mcp)
 ClaudeからLINEメッセージを送信
 
 ```bash
@@ -72,7 +72,7 @@ npx mcp-line-notify
 
 - [FAL MCP Server ドキュメント](./NoraneCode/fal_mcp/README.md)
 - [NASA MCP Server ドキュメント](./NoraneCode/nasa_mcp/README.md)
-- [LINE MCP Server ドキュメント](./NoraneCode/line-mcp/README.md)
+- [LINE MCP Server ドキュメント](./NoraneCode/line_mcp/README.md)
 
 ## 🖥️ プラットフォーム対応
 
