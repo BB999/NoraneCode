@@ -36,17 +36,17 @@ class FALMCPServer {
       return {
         tools: [
           {
-            name: 'upload_image_to_fal',
-            description: '画像ファイルをfal.aiにアップロードしてリモートURLを取得する',
+            name: 'upload_file_to_fal',
+            description: '任意のファイル（画像、動画、音声、テキストなど）をfal.aiにアップロードしてリモートURLを取得する',
             inputSchema: {
               type: 'object',
               properties: {
-                image_path: {
+                file_path: {
                   type: 'string',
-                  description: 'アップロードする画像ファイルのパス'
+                  description: 'アップロードするファイルのパス'
                 }
               },
-              required: ['image_path']
+              required: ['file_path']
             }
           }
         ]
@@ -57,8 +57,8 @@ class FALMCPServer {
       const { name, arguments: args } = request.params;
 
       try {
-        if (name === 'upload_image_to_fal') {
-          return await this.uploadImageToFal(args.image_path);
+        if (name === 'upload_file_to_fal') {
+          return await this.uploadFileToFal(args.file_path);
         }
         
         throw new Error(`Unknown tool: ${name}`);
@@ -76,14 +76,14 @@ class FALMCPServer {
     });
   }
 
-  async uploadImageToFal(imagePath) {
+  async uploadFileToFal(filePath) {
     return new Promise((resolve, reject) => {
       // Pythonスクリプトのパス
       const pythonScript = path.join(__dirname, 'upload_to_fal.py');
       
       // ファイルの存在確認
-      if (!fs.existsSync(imagePath)) {
-        reject(new Error(`画像ファイルが見つかりません: ${imagePath}`));
+      if (!fs.existsSync(filePath)) {
+        reject(new Error(`ファイルが見つかりません: ${filePath}`));
         return;
       }
 
@@ -94,7 +94,7 @@ class FALMCPServer {
 
       // Pythonスクリプトを実行（Windows/Mac両対応）
       const pythonCommand = process.platform === 'win32' ? 'python' : 'python3';
-      const pythonProcess = spawn(pythonCommand, [pythonScript, imagePath], {
+      const pythonProcess = spawn(pythonCommand, [pythonScript, filePath], {
         stdio: ['pipe', 'pipe', 'pipe']
       });
 
@@ -120,7 +120,7 @@ class FALMCPServer {
               content: [
                 {
                   type: 'text',
-                  text: `✅ 画像のアップロードに成功しました！\n\n**ファイル**: ${path.basename(imagePath)}\n**リモートURL**: ${url}\n\n詳細ログ:\n${stdout}`
+                  text: `✅ ファイルのアップロードに成功しました！\n\n**ファイル**: ${path.basename(filePath)}\n**リモートURL**: ${url}\n\n詳細ログ:\n${stdout}`
                 }
               ]
             });
