@@ -71,7 +71,7 @@ Claude Codeの設定ファイル (`~/.claude/settings.json`) に以下を追加:
 ## 必要環境
 
 - Node.js 18.0.0 以上
-- `fal-client` パッケージがインストールされたPython 3.x
+- Python 3.x (`fal-client` パッケージがインストールされている)
 - 有効なfal.ai APIキー
 
 ### Python依存関係のインストール
@@ -79,6 +79,11 @@ Claude Codeの設定ファイル (`~/.claude/settings.json`) に以下を追加:
 ```bash
 pip install fal-client
 ```
+
+### プラットフォーム対応
+
+- **Mac/Linux**: Python 3.xが`python3`コマンドで利用可能
+- **Windows**: Python 3.xが`python`コマンドで利用可能（自動判別対応済み）
 
 ## サポートされる画像形式
 
@@ -105,6 +110,10 @@ pip install fal-client
 ```bash
 pip install fal-client
 ```
+
+**Windows環境の場合:**
+- Python 3.xがインストールされ、`python`コマンドでアクセス可能であることを確認してください
+- Pythonのインストール時に「Add Python to PATH」オプションを選択してください
 
 ## ライセンス
 

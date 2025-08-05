@@ -92,8 +92,9 @@ class FALMCPServer {
         return;
       }
 
-      // Pythonスクリプトを実行
-      const pythonProcess = spawn('python3', [pythonScript, imagePath], {
+      // Pythonスクリプトを実行（Windows/Mac両対応）
+      const pythonCommand = process.platform === 'win32' ? 'python' : 'python3';
+      const pythonProcess = spawn(pythonCommand, [pythonScript, imagePath], {
         stdio: ['pipe', 'pipe', 'pipe']
       });
 

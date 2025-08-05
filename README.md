@@ -1,22 +1,28 @@
-# NoraneCode MCP サーバー
+# NoraneCode
 
-Claude Code用のModel Context Protocol (MCP) サーバーのコレクションです。
+Claude Code用のModel Context Protocol (MCP) サーバーコレクションです。
 
-## 🎨 FAL MCP Server
+## 📦 パッケージ一覧
 
-画像をfal.aiにアップロードしてリモートURLを取得できるMCPサーバーです。
-
-### インストール
+### [@noranekob/fal-mcp-server](./NoraneCode/fal_mcp)
+画像をfal.aiにアップロードしてリモートURLを取得
 
 ```bash
 npx @noranekob/fal-mcp-server
 ```
 
-### セットアップ
+### [@noranekob/nasa-mcp-server](./NoraneCode/nasa_mcp)
+NASA APIで宇宙画像や火星探査機の写真をダウンロード
 
-1. [fal.ai](https://fal.ai) でAPIキーを取得
-2. Python環境に fal-client をインストール: `pip install fal-client`
-3. `~/.claude/settings.json` に設定を追加:
+```bash
+npx @noranekob/nasa-mcp-server
+```
+
+## 🚀 クイックスタート
+
+### 1. Claude Codeの設定
+
+`~/.claude/settings.json` に追加:
 
 ```json
 {
@@ -25,128 +31,52 @@ npx @noranekob/fal-mcp-server
       "command": "npx",
       "args": ["@noranekob/fal-mcp-server"],
       "env": {
-        "FAL_KEY": "あなたのFAL APIキー"
+        "FAL_KEY": "your-fal-api-key"
       }
-    }
-  }
-}
-```
-
-### 機能
-
-- **画像アップロード**: ローカル画像をfal.aiクラウドに保存
-- **リモートURL取得**: AI処理で使える共有URLを生成
-- **複数フォーマット対応**: JPG、PNG、GIF、WebP、BMP
-
-### 使用例
-
-```
-この画像をfalにアップロードしてリモートURL教えて
-```
-
-```
-/Users/username/image.jpg をfalにアップロード
-```
-
-[詳細なドキュメント →](./NoraneCode/fal_mcp/README.md)
-
----
-
-## 🚀 NASA MCP Server
-
-宇宙画像や火星探査機の写真をダウンロードできるMCPサーバーです。
-
-### インストール
-
-```bash
-npx @noranekob/nasa-mcp-server
-```
-
-### セットアップ
-
-1. [NASA API](https://api.nasa.gov/) で無料のAPIキーを取得
-2. `~/.claude/settings.json` に設定を追加:
-
-```json
-{
-  "mcpServers": {
+    },
     "nasa-mcp-server": {
       "command": "npx",
       "args": ["@noranekob/nasa-mcp-server"],
       "env": {
-        "NASA_API_KEY": "あなたのNASA APIキー"
+        "NASA_API_KEY": "your-nasa-api-key"
       }
     }
   }
 }
 ```
 
-### 機能
+### 2. APIキーの取得
 
-- **APOD (今日の天体写真)**: 宇宙の美しい画像をダウンロード
-- **火星探査機の写真**: Curiosity、Perseveranceなどの写真
-- **NASA メディア検索**: 宇宙関連の画像・動画を検索
-- **地球近傍天体データ**: 小惑星情報を取得
+- **FAL API**: [fal.ai](https://fal.ai) でサインアップ
+- **NASA API**: [api.nasa.gov](https://api.nasa.gov/) で無料取得
 
-### 使用例
+## 📖 詳細ドキュメント
 
-```
-火星の写真を5枚ランダムでダウンロード
-```
+各MCPサーバーの詳細は個別のREADMEを参照してください:
 
-```
-"apollo"で動画を検索して3つダウンロード
-```
+- [FAL MCP Server ドキュメント](./NoraneCode/fal_mcp/README.md)
+- [NASA MCP Server ドキュメント](./NoraneCode/nasa_mcp/README.md)
 
-```
-今日のAPODをダウンロード
-```
+## 🖥️ プラットフォーム対応
 
-[詳細なドキュメント →](./NoraneCode/nasa_mcp/README.md)
+- ✅ Windows
+- ✅ macOS
+- ✅ Linux
 
-## Development
+## 📋 必要環境
 
-### Local Development
+- Node.js 18.0.0+
+- Python 3.x (FAL MCP Serverのみ)
 
-```bash
-# Clone repository
-git clone https://github.com/noranekob/NoraneCode.git
-cd NoraneCode
-
-# NASA MCP Server
-cd NoraneCode/nasa_mcp
-npm install
-npm start
-
-# FAL MCP Server
-cd NoraneCode/fal_mcp
-npm install
-npm start
-```
-
-### Publishing Updates
-
-```bash
-# From each server directory
-npm version patch
-npm publish --access public
-```
-
-## Requirements
-
-- Node.js 18.0.0 or higher
-- Python 3.x (for FAL MCP Server)
-- Valid API keys for each service
-
-## License
+## 📄 ライセンス
 
 MIT
 
-## Author
+## 👤 作者
 
 noranekob
 
-## Links
+## 🔗 リンク
 
-- [GitHub Repository](https://github.com/noranekob/NoraneCode)
-- [Report Issues](https://github.com/noranekob/NoraneCode/issues)
+- [GitHub](https://github.com/noranekob/NoraneCode)
+- [Issues](https://github.com/noranekob/NoraneCode/issues)

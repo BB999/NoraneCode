@@ -1,6 +1,6 @@
 {
   "name": "@noranekob/fal-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP Server for fal.ai - Upload images to fal.ai and get remote URLs",
   "type": "module",
   "main": "index.js",
@@ -29,7 +29,16 @@
     "url": "https://github.com/noranekob/fal-mcp-server/issues"
   },
   "homepage": "https://github.com/noranekob/fal-mcp-server#readme",
-  "keywords": ["mcp", "modelcontextprotocol", "fal", "fal.ai", "image", "upload", "ai", "claude"],
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "fal",
+    "fal.ai",
+    "image",
+    "upload",
+    "ai",
+    "claude"
+  ],
   "author": "noranekob",
   "license": "MIT",
   "engines": {

@@ -129,6 +129,13 @@ NASA画像ライブラリから検索・ダウンロードします。
 - Node.js 18.0.0 以上
 - 有効なNASA APIキー ([api.nasa.gov](https://api.nasa.gov/) で無料取得)
 
+### プラットフォーム対応
+
+- **Windows**: 完全対応
+- **Mac/Linux**: 完全対応
+
+Pure JavaScriptで実装されているため、すべてのプラットフォームで動作します。
+
 ## レート制限
 
 NASA APIには以下のレート制限があります:
