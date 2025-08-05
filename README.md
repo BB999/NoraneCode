@@ -5,7 +5,7 @@ Claude Code用のModel Context Protocol (MCP) サーバーコレクションで�
 ## 📦 パッケージ一覧
 
 ### [@noranekob/fal-mcp-server](./NoraneCode/fal_mcp)
-画像をfal.aiにアップロードしてリモートURLを取得
+ローカルのファイルをfal.aiにアップロードしてリモートURLを取得
 
 ```bash
 npx @noranekob/fal-mcp-server
@@ -74,7 +74,7 @@ MIT
 
 ## 👤 作者
 
-noranekob
+のらねこび(noranekob)
 
 ## 🔗 リンク
 
