@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "fal-mcp-server": "./index.js"
+    "fal-mcp-server": "index.js"
   },
   "scripts": {
     "start": "node index.js",
