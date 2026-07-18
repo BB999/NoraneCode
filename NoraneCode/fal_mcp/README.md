@@ -30,12 +30,6 @@ npx @noranekob/fal-mcp-server
 npm install -g @noranekob/fal-mcp-server
 ```
 
-### Python依存関係のインストール
-
-```bash
-pip install fal-client
-```
-
 ## セットアップ
 
 ### 1. fal.ai APIキーを取得
@@ -87,19 +81,9 @@ Claude Codeの設定ファイル (`~/.claude/settings.json`) に以下を追加:
 ## 必要環境
 
 - Node.js 18.0.0 以上
-- Python 3.x (`fal-client` パッケージがインストールされている)
 - 有効なfal.ai APIキー
 
-### Python依存関係のインストール
-
-```bash
-pip install fal-client
-```
-
-### プラットフォーム対応
-
-- **Mac/Linux**: Python 3.xが`python3`コマンドで利用可能
-- **Windows**: Python 3.xが`python`コマンドで利用可能（自動判別対応済み）
+Python等の追加ランタイムは不要です（v1.1.0からNode.js単体で動作します）。
 
 ## サポートされるファイル形式
 
@@ -132,17 +116,13 @@ pip install fal-client
 
 セットアップセクションで示されているように、Claude Codeの設定にfal.ai APIキーを追加していることを確認してください。
 
-### "Python not found" または "ModuleNotFoundError: No module named 'fal_client'" エラー
+### "Python not found" エラー (v1.0.x)
 
-必要なPythonパッケージをインストールしてください:
+v1.0.x はアップロード処理にPythonを使用していたため、Python環境がないマシン（またはNodeの`spawn`がpyenv等のshimを解決できない環境）では終了コード9009で失敗していました。v1.1.0以降はNode.js単体で動作するため、最新版に更新してください:
+
 ```bash
-pip install fal-client
+npx clear-npx-cache 2>/dev/null; npx @noranekob/fal-mcp-server
 ```
-
-**Windows環境の場合:**
-- Python 3.xがインストールされ、`python`コマンドでアクセス可能であることを確認してください
-- Pythonのインストール時に「Add Python to PATH」オプションを選択してください
-- ※Windows環境では絵文字表示エラーが発生する場合がありますが、アップロード自体は正常に完了します
 
 ## ライセンス
 
